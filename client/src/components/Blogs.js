@@ -1,27 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux'; //how to subscribe component to redux
+import Blog from './Blog';
 
-class Blogs extends React.Component {
+const Blogs = ({ blogs }) => (
+  <div>
+    <ul>
+      <h1>Blogs</h1>
+        {blogs.map( (b) => {
+          return (
+            <Blog key={b.id} {...b} />
+          )
+        })
+      }
+    </ul>
+  </div>
+)
 
-  componentDidMount() {
-    // function calls when component mounts (when blog component renders, do this)
-    axios.get()
-    .then( res => {
-      //when this request finishes
-    })
-    .catch ( err => {
-      //if the request fails
-    })
-  }
-
-  render() {
-    return(
-      <div>
-        <h1>Blogs</h1>
-      </div>
-    )
-  }
+const mapStateToProps = (state) => {
+  return { blogs: state.blogs }
 }
 
-
-
-export default Blogs;
+export default connect(mapStateToProps)(Blogs);

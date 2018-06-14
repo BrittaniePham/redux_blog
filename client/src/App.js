@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Blogs from './components/Blogs';
+import BlogForm from './components/BlogForm';
+import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
+        <BlogForm />
         <Blogs />
       </div>
     )
