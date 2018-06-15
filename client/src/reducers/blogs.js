@@ -21,8 +21,8 @@ export default ( state = [], action ) => {
       return action.blogs
     case ADD_BLOG:
       return [action.blog, ...state]
-    // case DELETE_BLOG:
-    //   return state.filter( b => b.id !== action.id)
+    case DELETE_BLOG:
+      return state.filter( b => b.id !== action.id)
     case TOGGLE_BLOG:
       return state.map( blog => {
         if (blog.id === action.id)
